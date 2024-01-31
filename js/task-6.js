@@ -14,24 +14,24 @@ const inputEl = document.querySelector('input[type="number"]');
 console.log(inputEl);
 const arrDiv = [];
 
-// inputEl.addEventListener("input", (event) => {
-//   const value = event.target.value;
-//   if (value > 100 || value < 0) {
-//     event.target.value = 0;
-//   }
-
-btnCreateEl.addEventListener("click", () => {
-  for (let i = 0; i < inputEl.value; i += 1) {
-    let divSize = 30;
-    arrDiv.push(document.createElement("div"));
-    arrDiv[i].style.width = `${divSize + i * 10}px`;
-    arrDiv[i].style.height = `${divSize + i * 10}px`;
-    arrDiv[i].style.backgroundColor = getRandomHexColor();
+inputEl.addEventListener("input", (event) => {
+  const value = event.target.value;
+  if (value > 100 || value < 0) {
+    event.target.value = 0;
   }
-  divEl.append(...arrDiv);
-});
 
-btnDestrEl.addEventListener("click", () => {
-  divEl.innerHTML = "";
+  btnCreateEl.addEventListener("click", () => {
+    for (let i = 0; i < inputEl.value; i += 1) {
+      let divSize = 30;
+      arrDiv.push(document.createElement("div"));
+      arrDiv[i].style.width = `${divSize + i * 10}px`;
+      arrDiv[i].style.height = `${divSize + i * 10}px`;
+      arrDiv[i].style.backgroundColor = getRandomHexColor();
+    }
+    divEl.append(...arrDiv);
+  });
+
+  btnDestrEl.addEventListener("click", () => {
+    divEl.innerHTML = "";
+  });
 });
-// });
